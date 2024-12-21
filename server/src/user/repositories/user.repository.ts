@@ -4,7 +4,7 @@ import { MongoService } from "~/common/mongo/mongo.service";
 import { UserEntity, USERS_COLLECTION } from "../entities/user.entity";
 
 @Injectable()
-export class UserRepostitory {
+export class UserRepository {
   private readonly db: Db;
   constructor(private readonly mongoService: MongoService) {
     this.db = mongoService.db;

@@ -10,4 +10,8 @@ export type UserEntity = {
    */
   handle?: string;
   name: string;
+  /**
+   * undefined if user only logged in using password
+   */
+  passwordHash?: string;
 };

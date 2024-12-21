@@ -7,7 +7,7 @@ export class MongoService implements OnModuleInit {
   readonly db: Db;
 
   constructor() {
-    this.client = new MongoClient(process.env.MONGO_URI);
+    this.client = new MongoClient(process.env.MONGODB_URI);
     this.db = this.client.db(process.env.MONGODB_DB);
   }
 
