@@ -1,1 +1,1 @@
-# Here will be the Forntend
+# Polarius Hub Frontend
