@@ -1,13 +1,12 @@
-// src/theme/theme.ts
-
 import { createTheme } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
 // Example color palette
-const primaryColor = '#1D4783';  // Deep official-like blue
+const primaryColor = '#1D4783'; // Deep official-like blue
 const secondaryColor = '#FFD200'; // Vibrant gold/yellow
-const backgroundColor = '#F7F9FC'; // Light neutral background
+const backgroundColor = '#001321'; // Dark background
 const errorColor = '#D32F2F';
+const white = '#fff';
 
 const theme = createTheme({
     palette: {
@@ -51,27 +50,53 @@ const theme = createTheme({
         },
     },
     shape: {
-        borderRadius: 6, // Slightly rounded corners
+        borderRadius: 6, // Default border radius for components
     },
     components: {
-        // Example: override MUI Button
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 10,
+                    color: white, // Ensures input text is white
+                    '& .MuiInputBase-input': {
+                        color: white, // Input text color
+                    },
+                    '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: white, // Focused border color
+                    },
+                },
+                notchedOutline: {
+                    borderColor: white, // Default border color
+                },
+            },
+        },
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {
+                    color: white, // Default label color
+                    '&.Mui-focused': {
+                        color: white, // Focused label color
+                    },
+                },
+            },
+        },
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderWidth: 1,
-                    borderStyle: 'solid',
-                    borderColor: primaryColor,
+                    color: white,
+                    borderRadius: 10,
+                    height: 54,
+                    marginTop: 10,
                     ':hover': {
                         borderColor: secondaryColor,
                     },
                 },
             },
         },
-        // Example: add a subtle border or pattern in the container
         MuiContainer: {
             styleOverrides: {
                 root: {
-                    border: `1px solid ${primaryColor}22`,
+                    border: `1px solid ${white}`,
                     borderRadius: '6px',
                     padding: '1.5rem',
                     backgroundColor: '#ffffff',

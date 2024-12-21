@@ -1,13 +1,19 @@
 // src/pages/HomePage.tsx
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Container, Typography, Button, Grid, Card, CardContent } from '@mui/material';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const HomePage: React.FC = () => {
+    const navigate = useNavigate(); // React Router's navigation hook
+
     return (
-        <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', py: 8 }}>
-            {/* Hero Section */}
-            <Container maxWidth="lg" sx={{ textAlign: 'center', mb: 6 }}>
+        <div className="home">
+            <Navbar />
+
+           <div className="home_hero">
                 <Typography variant="h1" component="h1" color="primary" gutterBottom>
                     Polarius Hub
                 </Typography>
@@ -19,76 +25,13 @@ const HomePage: React.FC = () => {
                     color="secondary"
                     size="large"
                     sx={{ px: 4, py: 1.5 }}
+                    onClick={() => navigate('/login')} // Navigate to /login on click
                 >
                     Get Started
                 </Button>
-            </Container>
+           </div>
 
-            {/* Features Section */}
-            <Container maxWidth="md">
-                <Typography variant="h2" component="h2" color="primary" gutterBottom textAlign="center">
-                    Why Polarius Hub?
-                </Typography>
-                <Grid container spacing={4}>
-                    <Grid item xs={12} sm={6}>
-                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom color="primary">
-                                    Real-Time Fact Checking
-                                </Typography>
-                                <Typography variant="body1">
-                                    Stay informed with consolidated, unbiased sources that help Ana fight fake news
-                                    and keep elves united. Our platform verifies posts, identifies misinformation,
-                                    and provides credible references.
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom color="primary">
-                                    Community Engagement
-                                </Typography>
-                                <Typography variant="body1">
-                                    Build meaningful discussions with your community of elves.
-                                    Share verified updates, create polls, and encourage transparent
-                                    decision-making—just what Ana needs to foster trust and unity.
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-
-                    <Grid item xs={12} sm={6}>
-                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom color="primary">
-                                    Personalized Alerts
-                                </Typography>
-                                <Typography variant="body1">
-                                    Focus on the news that matters. Our AI automatically flags relevant topics
-                                    and urgent updates, ensuring you never miss a crucial story or potential threat.
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-
-                    <Grid item xs={12} sm={6}>
-                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom color="primary">
-                                    Misinformation Radar
-                                </Typography>
-                                <Typography variant="body1">
-                                    Identify patterns and tactics used by polarizing sources. With Polarius Hub,
-                                    you can track disinformation campaigns, analyze sources, and safeguard elf communities.
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                </Grid>
-            </Container>
 
             {/* Hackathon Festive Note (Optional) */}
             <Box sx={{ textAlign: 'center', mt: 6 }}>
@@ -99,7 +42,9 @@ const HomePage: React.FC = () => {
                     </em>
                 </Typography>
             </Box>
-        </Box>
+
+            <Footer />
+        </div>
     );
 };
 
